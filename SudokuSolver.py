@@ -3,10 +3,10 @@
 """
 Created on Tue Dec 17 11:32:21 2019
 
-@author: 72marcoantonio
+@author: magbarroca
 """
 
-def find_zero(b):
+def find_next(b):
     for i in range (len(b)):
         for j in range(len(b[0])):
             if b[i][j]==0:
@@ -14,7 +14,7 @@ def find_zero(b):
             
     return None
 
-def proper(b, num, pos):
+def isValid(b, num, pos):
     
     """box Check"""
     
@@ -41,14 +41,14 @@ def proper(b, num, pos):
     return True
 
 def solve(b):
-    empty=find_zero(b)
+    empty=find_next(b)
     if empty:
         row,col=empty
     else:
         return True
     
     for i in range(1,10):
-        if proper(b, i, (row,col)):
+        if isValid(b, i, (row,col)):
             b[row][col]=i
             
             if solve(b):
